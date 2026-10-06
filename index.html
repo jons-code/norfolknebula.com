@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Norfolk Nebula | Astrophotography</title>
+  <meta name="description" content="The Norfolk Nebula. A collection of photographs of the Moon, Sun, planets, nebulae and galaxies.">
+  <style>
+    :root{
+      --bg:#030811; --panel:#07111e; --line:#1b3148; --text:#edf5ff;
+      --muted:#9fb2c8; --accent:#69c7ff; --accent2:#a7e2ff;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:18px 6%;background:rgba(3,8,17,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(105,199,255,.12)}
+    .brand{font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.85rem}
+    .brand span{display:block;color:var(--muted);font-size:.58rem;letter-spacing:.35em;margin-top:2px}
+    .links{display:flex;gap:28px;font-size:.9rem;color:var(--muted)}
+    .links a:hover{color:var(--accent)}
+    .hero{min-height:92vh;display:grid;place-items:center;position:relative;overflow:hidden;padding:120px 6% 70px}
+    .hero:before{content:"";position:absolute;inset:0;background:
+      linear-gradient(90deg,rgba(3,8,17,.96) 0%,rgba(3,8,17,.72) 43%,rgba(3,8,17,.15) 100%),
+      url("assets/hero-placeholder.png") center/cover no-repeat;filter:saturate(.9)}
+    .stars{position:absolute;inset:0;opacity:.55;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:83px 83px;mix-blend-mode:screen}
+    .hero-content{position:relative;max-width:760px;margin-right:auto}
+    .eyebrow{text-transform:uppercase;letter-spacing:.28em;color:var(--accent);font-size:.72rem;font-weight:700}
+    h1{font-size:clamp(3rem,7vw,6.6rem);line-height:.98;margin:18px 0 24px;letter-spacing:-.055em}
+    .hero p{font-size:1.15rem;color:#c5d5e6;max-width:650px}
+    .button{display:inline-block;margin-top:24px;padding:13px 20px;border:1px solid var(--accent);color:white;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;transition:.2s}
+    .button:hover{background:var(--accent);color:#03101b}
+    section{padding:90px 6%}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}
+    .section-head h2{margin:0;font-size:2rem}
+    .section-head p{margin:0;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--panel);border:1px solid var(--line);overflow:hidden;transition:transform .2s,border-color .2s}
+    .card:hover{transform:translateY(-4px);border-color:#3c668a}
+    .card-img{aspect-ratio:4/3;background:radial-gradient(circle at 50% 40%,#8aa8c4 0 2%,#293f58 3%,#07111e 35%,#02050a 70%);position:relative;overflow:hidden}
+    .card-img:after{content:"";position:absolute;inset:0;background:radial-gradient(#fff 0 1px,transparent 1px);background-size:48px 48px;opacity:.35}
+    .moon{background:radial-gradient(circle at 48% 46%,#d9dde1 0 13%,#737d87 14%,#343d46 35%,#060a0f 36% 100%)}
+    .sun{background:radial-gradient(circle,#ffdf70 0 18%,#ff8b18 32%,#a93a0b 44%,#080b10 46% 100%)}
+    .planet{background:radial-gradient(ellipse at 50% 45%,#d6b98b 0 15%,#8b6d4d 16%,#d6b98b 20%,#66513f 28%,#090e16 31% 100%)}
+    .nebula{background:radial-gradient(circle at 48% 48%,#f5a7e4 0 5%,#8d55c9 13%,#d45f8e 22%,#17284a 42%,#030812 72%)}
+    .galaxy{background:radial-gradient(ellipse at 52% 48%,#ffe2a4 0 4%,#8fa8df 9%,#4e5ca0 17%,#111d3a 34%,#030812 62%)}
+    .comet{background:radial-gradient(circle at 73% 35%,#d9ffff 0 3%,#5fe4ef 5%,transparent 9%),linear-gradient(145deg,#030812 50%,#143e52 51%,#030812 65%)}
+    .card-body{padding:18px}
+    .card h3{margin:0 0 4px;font-size:1.05rem}
+    .card small{color:var(--muted)}
+    .feature{display:grid;grid-template-columns:1.25fr 1fr;gap:38px;align-items:center;background:#050d17;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .feature-img{min-height:430px;background:url("assets/hero-placeholder.png") center/cover;border:1px solid var(--line)}
+    .feature h2{font-size:2.4rem;line-height:1.05;margin:12px 0}
+    .meta{display:grid;gap:10px;margin:24px 0;color:var(--muted)}
+    .about{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+    .about h3{margin-top:0}
+    .about p,.about li{color:var(--muted)}
+    footer{padding:30px 6%;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--muted);font-size:.85rem}
+    @media(max-width:800px){
+      .links{gap:12px;font-size:.78rem}.grid{grid-template-columns:1fr 1fr}
+      .feature,.about{grid-template-columns:1fr}.feature-img{min-height:300px}
+    }
+    @media(max-width:540px){
+      .links a:nth-child(2){display:none}.grid{grid-template-columns:1fr}section{padding:65px 5%}
+      .hero{padding-left:5%;padding-right:5%}h1{font-size:3.2rem}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand" href="#">The Norfolk Nebula<span>Astrophotography</span></a>
+    <div class="links">
+      <a href="#home">Home</a><a href="#gallery">Gallery</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="stars"></div>
+    <div class="hero-content">
+      <div class="eyebrow">Capturing the universe</div>
+      <h1>The Norfolk Nebula</h1>
+      <p>Exploring the night sky, one image at a time. A personal collection of photographs from our solar system and beyond.</p>
+      <a class="button" href="#gallery">Explore my work →</a>
+    </div>
+  </header>
+
+  <section id="gallery">
+    <div class="section-head">
+      <div><div class="eyebrow">Browse the gallery</div><h2>My Space Photography</h2></div>
+      <p>Replace these cards with your own photographs.</p>
+    </div>
+    <div class="grid">
+      <a class="card" href="#"><div class="card-img moon"></div><div class="card-body"><h3>Moon</h3><small>Your lunar images</small></div></a>
+      <a class="card" href="#"><div class="card-img sun"></div><div class="card-body"><h3>Sun</h3><small>Solar photography</small></div></a>
+      <a class="card" href="#"><div class="card-img planet"></div><div class="card-body"><h3>Planets</h3><small>Our planetary neighbours</small></div></a>
+      <a class="card" href="#"><div class="card-img nebula"></div><div class="card-body"><h3>Nebulae</h3><small>Clouds of gas and dust</small></div></a>
+      <a class="card" href="#"><div class="card-img galaxy"></div><div class="card-body"><h3>Galaxies</h3><small>Island universes</small></div></a>
+      <a class="card" href="#"><div class="card-img comet"></div><div class="card-body"><h3>Comets & Other</h3><small>Everything else out there</small></div></a>
+    </div>
+  </section>
+
+  <section class="feature">
+    <div class="feature-img"></div>
+    <div>
+      <div class="eyebrow">Featured image</div>
+      <h2>M42 · The Orion Nebula</h2>
+      <p>One of the night sky's most spectacular targets. This section is ready for the details of one of your own favourite photographs.</p>
+      <div class="meta">
+        <div>📅 Date photographed: <strong>Add date</strong></div>
+        <div>🔭 Telescope: <strong>Add telescope</strong></div>
+        <div>📷 Camera: <strong>Add camera</strong></div>
+        <div>⏱ Exposure: <strong>Add exposure details</strong></div>
+      </div>
+      <a class="button" href="#contact">View full details →</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="about">
+      <div>
+        <div class="eyebrow">About me</div>
+        <h2>Looking up.</h2>
+        <p>Welcome to The Norfolk Nebula, a personal astrophotography portfolio sharing photographs of the Moon, Sun, planets, nebulae, galaxies and other objects in the night sky.</p>
+      </div>
+      <div>
+        <h3>My Equipment</h3>
+        <ul><li>Add telescope</li><li>Add main camera</li><li>Add mount</li><li>Add guiding setup</li><li>Add processing software</li></ul>
+      </div>
+      <div id="contact">
+        <h3>Contact</h3>
+        <p>Have a question about an image, the equipment, or astrophotography?</p>
+        <p><a href="mailto:your@email.com">your@email.com</a></p>
+        <p><a href="#">Instagram</a> · <a href="#">AstroBin</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 The Norfolk Nebula · Astrophotography</span>
+    <span>Look up · Be curious · Keep exploring</span>
+  </footer>
+</body>
+</html>
