@@ -53,10 +53,20 @@ footer{padding:30px 6%;border-top:1px solid var(--line);color:#8ea5bb;display:fl
 .lightbox-close{position:absolute;top:14px;right:20px;font-size:42px;line-height:1;color:#fff;background:none;border:0;cursor:pointer}
 @media(max-width:650px){.photo-sequence{padding:20px 14px 50px}.photo-item{margin-bottom:48px}.photo-details{padding:16px}.photo-specs{grid-template-columns:1fr}}
 
+
+
+.about-intro{background:#2b2f35;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);padding:46px 6% 48px;}
+.about-inner{max-width:900px;margin:0 auto;}
+.about-intro h2{font-family:"Arial Narrow","Helvetica Neue",Arial,sans-serif;font-size:clamp(34px,5vw,58px);line-height:.95;letter-spacing:-.035em;margin:0 0 18px;}
+.about-intro p{max-width:820px;color:#d2d7dd;line-height:1.7;margin:0 0 14px;font-size:16px;}
+.about-intro p:last-child{margin-bottom:0;}
+@media(max-width:600px){.about-intro{padding:34px 5% 36px}.about-intro p{font-size:14px;line-height:1.65}}
+
 </style>
 
 <style>
 .details-section{padding:90px 0 40px}.section-heading{max-width:760px;margin-bottom:42px}.eyebrow{font-size:.75rem;letter-spacing:.18em;font-weight:800;opacity:.7;margin:0 0 10px}.section-heading h2{font-family:"Arial Narrow","Helvetica Neue",Arial,sans-serif;font-size:clamp(42px,7vw,82px);line-height:.9;letter-spacing:-.04em;margin:0 0 16px}.section-heading p:last-child{max-width:650px;line-height:1.7;opacity:.8}.details-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}.detail-card{overflow:hidden;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:rgba(255,255,255,.035)}.detail-card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}.detail-copy{padding:24px}.detail-copy>span{font-size:.72rem;letter-spacing:.16em;font-weight:800;opacity:.65}.detail-copy h3{font-size:1.8rem;margin:7px 0 10px}.detail-copy p{line-height:1.65;opacity:.82;margin:0 0 20px}.detail-copy dl{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0}.detail-copy dl div{padding-top:12px;border-top:1px solid rgba(255,255,255,.12)}.detail-copy dt{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;opacity:.55}.detail-copy dd{margin:4px 0 0;font-size:.85rem}.technical-note{margin:42px 0 0;padding:22px 24px;border-left:3px solid currentColor;background:rgba(255,255,255,.035);line-height:1.6;opacity:.85}@media(max-width:760px){.details-section{padding:65px 0 25px}.details-grid{grid-template-columns:1fr;gap:20px}.detail-copy{padding:20px}.detail-copy dl{grid-template-columns:1fr 1fr 1fr}}
+
 </style>
 
 <style>
@@ -64,6 +74,7 @@ footer{padding:30px 6%;border-top:1px solid var(--line);color:#8ea5bb;display:fl
 .detail-copy .workflow{margin-top:20px;font-size:.84rem;opacity:.72}
 .detail-copy .status{margin-top:12px;font-size:.75rem;letter-spacing:.09em;font-weight:800;opacity:.72}
 @media(max-width:760px){.detail-copy dl{grid-template-columns:repeat(2,1fr)}}
+
 </style>
 </head>
 <body>
@@ -73,13 +84,19 @@ footer{padding:30px 6%;border-top:1px solid var(--line);color:#8ea5bb;display:fl
 </nav>
 
 <header class="hero">
-<div class="hero-content">
-<div class="eyebrow">Personal astrophotography</div>
-<h1>The Norfolk Nebula</h1>
-<p>Exploring the night sky from Norfolk, one exposure at a time. Galaxies, nebulae, lunar detail and the quiet light of deep space.</p>
-<a class="button" href="#gallery">Explore the gallery →</a>
-</div>
+<div class="hero-content"></div>
 </header>
+<section id="about" class="about-intro">
+  <div class="about-inner">
+    <div class="eyebrow">About me</div>
+    <h2>Chasing faint light.</h2>
+    <p>I'm Jonathan, an astrophotographer based in Norfolk with a fascination for the night sky and the incredible objects beyond it.</p>
+    <p>My interest in astronomy grew into a passion for capturing my own images of galaxies, nebulae, planets and the Moon. What started with simply looking up at the stars has become a hobby involving telescopes, cameras, tracking mounts and many long nights under the Norfolk sky.</p>
+    <p>I enjoy the technical side as much as the photography. Each image is built from many exposures, carefully stacked and processed to reveal details invisible to the naked eye.</p>
+    <p><strong>The Norfolk Nebula</strong> is my personal collection of those images, documenting my astrophotography journey one target at a time.</p>
+  </div>
+</section>
+
 
 
 
@@ -146,18 +163,6 @@ document.addEventListener('keydown',function(e){
 <img src="images/ngc6946-fireworks.jpg" alt="Fireworks Galaxy (NGC 6946)" onclick="openLightbox(this.src,this.alt)">
 <div class="photo-details"><h2>Fireworks Galaxy (NGC 6946)</h2><div class="photo-status">WORK IN PROGRESS · More integration and processing planned</div><div class="photo-specs"><div><strong>Telescope:</strong> Altair 80</div><div><strong>Reducer:</strong> None</div><div><strong>Focal length:</strong> 480 mm</div><div><strong>Camera:</strong> ASI533MC Pro</div><div><strong>Filter:</strong> L-eNhance</div><div><strong>Mount:</strong> HEQ5 Pro</div><div><strong>Guiding:</strong> Fully guided</div><div><strong>Exposure:</strong> 180 sec / 3 min</div><div><strong>Total integration:</strong> 6 hours so far</div><div><strong>Capture:</strong> ASIAIR</div><div><strong>Stacking / processing:</strong> PixInsight</div></div></div>
 </article>
-</section>
-<section id="about">
-<div class="about">
-<div>
-<div class="eyebrow">About the photographer</div>
-<h2>Chasing faint light.</h2>
-<p>The Norfolk Nebula is my personal astrophotography portfolio, built around a simple obsession: finding beautiful things in the dark and bringing them back into view.</p>
-<p>New images will be added as the collection grows.</p>
-</div>
-<div class="note"><strong>From</strong>Norfolk, England</div>
-<div class="note"><strong>Subjects</strong>Moon · Nebulae · Galaxies · Deep sky</div>
-</div>
 </section>
 <section id="contact">
 <div class="section-head">
